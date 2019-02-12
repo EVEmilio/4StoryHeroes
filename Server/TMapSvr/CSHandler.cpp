@@ -7608,22 +7608,23 @@ LPTSECURE pSECURE = pPlayer->GetSecureCode();
 	{
 	case IK_UPGRADE:
 		{
-			BYTE bRand = BYTE(rand() % 100);
-			BYTE bProb = CalcProb(pPlayer, pNpc, PROB_UPGRADE, m_itemgrade[pItem->m_bLevel].m_bProb);
+		BYTE bRand = BYTE(rand() % 100);
+		BYTE bProb = CalcProb(pPlayer, pNpc, PROB_UPGRADE, m_itemgrade[pItem->m_bLevel].m_bProb);
 
-			if(bRand < bProb)
-			{
-				BYTE bGrade = bItemGrade == 3 ? BYTE(rand() % 3) + 1 : 1;
-				pItem->m_bLevel = 24;
-				
-				if(pItem->m_bLevel >= MIN_GRADE_EFFECT_LEVEL && pItem->m_bGradeEffect == 0 && pItem->m_pTITEM->m_bKind != 19)
-					pItem->m_bGradeEffect = BYTE(rand()% (IE_COUNT-1) ) + 1;
+		if (bRand < bProb)
+		{
+			BYTE bGrade = bItemGrade == 3 ? BYTE(rand() % 3) + 1 : 1;
+			pItem->m_bLevel += bGrade;
 
-				if(pItem->m_bLevel > ITEMLEVEL_MAX)
-					pItem->m_bLevel = ITEMLEVEL_MAX;
+			if (pItem->m_bLevel >= MIN_GRADE_EFFECT_LEVEL && pItem->m_bGradeEffect == 0)
+				pItem->m_bGradeEffect = BYTE(rand() % (IE_COUNT - 1)) + 1;
 
-				SetItemAttr(pItem, pItem->m_bLevel);
-				pPlayer->SendCS_ITEMUPGRADE_ACK(ITEMUPGRADE_SUCCESS, bTargetInven, bTargetItemID, pItem->m_bLevel, pItem->m_bGem, pItem->m_bGradeEffect, 0, pItem->m_wMoggItemID);
+			if (pItem->m_bLevel > ITEMLEVEL_MAX)
+				pItem->m_bLevel = ITEMLEVEL_MAX;
+
+			SetItemAttr(pItem, pItem->m_bLevel);
+			pPlayer->SendCS_ITEMUPGRADE_ACK(ITEMUPGRADE_SUCCESS, bTargetInven, bTargetItemID, pItem->m_bLevel, pItem->m_bGem, pItem->m_bGradeEffect, 0, pItem->m_wMoggItemID);
+
 
 	#ifdef	DEF_UDPLOG
 				m_pUdpSocket->LogItemUpgrade(LOGMAP_ITEMUPGRADESUCCESS, pPlayer, pItem, bGrade );

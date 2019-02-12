@@ -418,8 +418,6 @@ DWORD CTItem::GetDefendPower()
 	DWORD dwValue=0;
 
 	dwValue += GetMagicValue(MTYPE_PDP);
-
-	if(m_pTITEM->m_bType != IT_SHIELD)
 		dwValue += m_pTITEMATTR->m_wDP;
 
 	return dwValue;
@@ -433,7 +431,6 @@ DWORD CTItem::GetMagicDefPower()
 
 	dwValue += GetMagicValue(MTYPE_MDP);
 
-	if(m_pTITEM->m_bType != IT_SHIELD)
 		dwValue += m_pTITEMATTR->m_wMDP;
 
 	return dwValue;
