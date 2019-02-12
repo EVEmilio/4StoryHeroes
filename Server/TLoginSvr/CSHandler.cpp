@@ -1487,7 +1487,7 @@ DWORD CTLoginSvrModule::OnCS_HOTSEND_REQ( CSqlDatabase * pDB, LPMAPTGROUP pGROUP
 
 DWORD CTLoginSvrModule::OnCS_VETERAN_REQ( CSqlDatabase * pDB, LPMAPTGROUP pGROUP, CTUser * pUser, CPacket& packet)
 {
-	/*BYTE bOption = NULL;
+	BYTE bOption = NULL;
 
 	DEFINE_QUERY( pDB, CSPVeteran)
 	query->m_dwUserID = pUser->m_dwID;
@@ -1496,11 +1496,11 @@ DWORD CTLoginSvrModule::OnCS_VETERAN_REQ( CSqlDatabase * pDB, LPMAPTGROUP pGROUP
 		return EC_SESSION_INVALIDCHAR;
 
 	bOption = BYTE(query->m_nRET);
-	UNDEFINE_QUERY()*/
+	UNDEFINE_QUERY()
 
 	//bOption als erster Parameter der Methode, wenn das Veteranen System f? einen PvE Server verwendet werden soll - sonst 3( = alles verf?bar)
 
-	pUser->SendCS_VETERAN_ACK(3, m_vVETERAN[0].m_bLevel, m_vVETERAN[1].m_bLevel, m_vVETERAN[2].m_bLevel);
+	pUser->SendCS_VETERAN_ACK(bOption, m_vVETERAN[0].m_bLevel, m_vVETERAN[1].m_bLevel, m_vVETERAN[2].m_bLevel);
 
 	return EC_NOERROR;
 }
