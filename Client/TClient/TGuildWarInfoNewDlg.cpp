@@ -81,30 +81,29 @@ void CTGuildWarInfoNewDlg::SetCurMode()
 			m_pList->SetUserColor(nLine, 2, color);
 			m_pList->SetImageIndex(nLine, 2, TRUE, local.m_bCountry);
 
-			CString strStatusLoc;
+			
 			DWORD dwColorLoc = COLOR_CASTLE_NONE;
 			switch (local.m_bStatus)
 			{
 			case BS_SKYGARDEN_START:
 			case BS_NORMAL:
-				strStatusLoc = CTChart::LoadString(TSTR_MISSION_NORMAL);
+				
+				dwColorLoc = TBattleColorEnd;
 				break;
 			case BS_BATTLE:
-				strStatusLoc = CTChart::LoadString(TSTR_MISSION_WAR);
-				dwColorLoc = COLOR_CASTLE_GEHBRA;
+				
+				dwColorLoc = TBattleColorWar;
 				break;
 			case BS_PEACE:
-				strStatusLoc = CTChart::LoadString(TSTR_MISSION_WAR_CLOSE);
-				dwColorLoc = COLOR_CASTLE_TYCON;
+				
+				dwColorLoc = TBattleColorEnd;
 				break;
 			}
-			m_pList->SetItemString(nLine, 3, strStatusLoc);
+			
+
+			m_pList->SetItemString(nLine, 3, local.m_strGuildName);
 			m_pList->SetUserColor(nLine, 3, dwColorLoc);
 			m_pList->SetColumnAlign(3, ALIGN_CENTER);
-
-			m_pList->SetItemString(nLine, 4, local.m_strGuildName);
-			m_pList->SetUserColor(nLine, 4, color);
-			m_pList->SetColumnAlign(4, ALIGN_CENTER);
 
 			DWORD dwInfoIndex = MAKELONG(j, i);
 			m_pList->SetItemDataAllColumn(nLine, dwInfoIndex);
@@ -145,11 +144,11 @@ void CTGuildWarInfoNewDlg::SetCurMode()
 			break;
 		case BS_BATTLE:
 			strStatusCastle = CTChart::LoadString(TSTR_MISSION_WAR);
-			dwColorCastle = COLOR_CASTLE_GEHBRA;
+			dwColorCastle = TBattleColorWar;
 			break;
 		case BS_PEACE:
 			strStatusCastle = CTChart::LoadString(TSTR_MISSION_WAR_CLOSE);
-			dwColorCastle = COLOR_CASTLE_TYCON;
+			dwColorCastle = TBattleColorEnd;
 			break;
 		}
 
@@ -182,14 +181,14 @@ void CTGuildWarInfoNewDlg::SetCurMode()
 	DWORD hodina = pCmd->m_SkyGarden.m_NextWar.GetHour();
 	DWORD minuta = pCmd->m_SkyGarden.m_NextWar.GetMinute();
 	if (hodina < 10)
-		gardentext.Format("%d/%d/%d 0%d:%d", roky, mesice, dny, hodina, minuta);
+		gardentext.Format("0%d:%d", hodina, minuta);
 	else if (minuta < 10)
-		gardentext.Format("%d/%d/%d %d:0%d", roky, mesice, dny, hodina, minuta);
+		gardentext.Format("%d:0%d", hodina, minuta);
 	else
-		gardentext.Format("%d/%d/%d %d:%d", roky, mesice, dny, hodina, minuta);
+		gardentext.Format("%d:%d", hodina, minuta);
 
 	if (hodina < 10 && minuta < 10)
-		gardentext.Format("%d/%d/%d 0%d:0%d", roky, mesice, dny, hodina, minuta);
+		gardentext.Format("0%d:0%d", hodina, minuta);
 
 	m_pList3->SetItemString(nLine4, 3, gardentext);
 	m_pList3->SetUserColor(nLine4, 3, COLOR_CASTLE_NONE);
@@ -205,11 +204,11 @@ void CTGuildWarInfoNewDlg::SetCurMode()
 		break;
 	case BS_BATTLE:
 		strStatusSky = CTChart::LoadString(TSTR_MISSION_WAR);
-		dwColorSky = COLOR_CASTLE_GEHBRA;
+		dwColorSky = TBattleColorWar;
 		break;
 	case BS_PEACE:
 		strStatusSky = CTChart::LoadString(TSTR_MISSION_WAR_CLOSE);
-		dwColorSky = COLOR_CASTLE_TYCON;
+		dwColorSky = TBattleColorEnd;
 		break;
 	}
 
@@ -236,14 +235,14 @@ void CTGuildWarInfoNewDlg::SetCurMode()
 		DWORD hodiny = itt->m_NextWar.GetHour();
 		DWORD minuty = itt->m_NextWar.GetMinute();
 		if (hodiny < 10)
-			guildtext.Format("%d/%d/%d 0%d:%d", rok, mesic, den, hodiny, minuty);
+			guildtext.Format("0%d:%d",  hodiny, minuty);
 		else if (minuty < 10)
-			guildtext.Format("%d/%d/%d %d:0%d", rok, mesic, den, hodiny, minuty);
+			guildtext.Format("%d:0%d",  hodiny, minuty);
 		else
-			guildtext.Format("%d/%d/%d %d:%d", rok, mesic, den, hodiny, minuty);
+			guildtext.Format("%d:%d", hodiny, minuty);
 
 		if (hodiny < 10 && minuty < 10)
-			guildtext.Format("%d/%d/%d 0%d:0%d", rok, mesic, den, hodiny, minuty);
+			guildtext.Format("0%d:0%d", hodiny, minuty);
 
 		m_pList3->SetItemString(nLine3, 3, guildtext);
 		m_pList3->SetUserColor(nLine3, 3, COLOR_CASTLE_NONE);
@@ -259,11 +258,11 @@ void CTGuildWarInfoNewDlg::SetCurMode()
 			break;
 		case BS_BATTLE:
 			strStatus = CTChart::LoadString(TSTR_MISSION_WAR);
-			dwColor = COLOR_CASTLE_GEHBRA;
+			dwColor = TBattleColorWar;
 			break;
 		case BS_PEACE:
 			strStatus = CTChart::LoadString(TSTR_MISSION_WAR_CLOSE);
-			dwColor = COLOR_CASTLE_TYCON;
+			dwColor = TBattleColorEnd;
 			break;
 		}
 

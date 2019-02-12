@@ -893,7 +893,7 @@ int CTClientWnd::OnGM_NEW_CHAR()
 
 		if(bEMPTY)
 		{
-			/*if(m_vNEWTCHAR.m_bContry == TCONTRY_PEACE)
+			if(m_vNEWTCHAR.m_bContry == TCONTRY_PEACE)
 			{
 				SendCS_CREATECHAR_REQ(
 					m_pTGROUP->m_bGroupID,
@@ -908,13 +908,30 @@ int CTClientWnd::OnGM_NEW_CHAR()
 					m_vNEWTCHAR.m_bPants,
 					m_vNEWTCHAR.m_bHand,
 					m_vNEWTCHAR.m_bFoot,
-					0);
+					1);
 
 				m_TNet.EnableComponent(FALSE);
 				break;
 			}
-			else*/
-				SendCS_VETERAN_REQ();
+			else
+				//SendCS_VETERAN_REQ();
+			SendCS_CREATECHAR_REQ(
+				m_pTGROUP->m_bGroupID,
+				strNAME, i,
+				m_vNEWTCHAR.m_bClass,
+				m_vNEWTCHAR.m_bRace,
+				m_vNEWTCHAR.m_bContry,
+				m_vNEWTCHAR.m_bSex,
+				m_vNEWTCHAR.m_bHair,
+				m_vNEWTCHAR.m_bFace,
+				m_vNEWTCHAR.m_bBody,
+				m_vNEWTCHAR.m_bPants,
+				m_vNEWTCHAR.m_bHand,
+				m_vNEWTCHAR.m_bFoot,
+				1);
+
+			m_TNet.EnableComponent(FALSE);
+			break;
 		}
 	}
 
