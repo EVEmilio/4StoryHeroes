@@ -121,20 +121,8 @@ int CTClientWnd::OnCS_LOGIN_ACK( CTachyonSession *pSession, CPacket *pPacket)
 			{
 				CString strMessage = "";
 				CTimeSpan cTime = iDuration;
-				if(!bEternal)
-				{
-					if(cTime.GetDays() != 0)
-						strMessage.Format("Your Account has been suspended.\n Reason: %s\n Duration: %d days", strReason, cTime.GetDays());
-					else
-					{
-						if(cTime.GetHours() != 0)
-							strMessage.Format("Your Account has been suspended.\n Reason: %s\n Time Left: %d hours and %d minutes", strReason, cTime.GetHours(), cTime.GetMinutes());
-						else
-							strMessage.Format("Your Account has been suspended.\n Reason: %s\n Time Left: %d minutes", strReason, cTime.GetMinutes());
-					}
-				}
-				else
-					strMessage.Format("Your Account has been permanently banned.\n Reason: %s", strReason);
+
+					strMessage.Format("Your Account has been banned.\n If you have an objection please contact support");
 
 				DWORD dwFrameID = ID_FRAME_LOBBY_1BTN_MSGBOX;
 				DWORD dwYesID = GM_CLOSE_MSGBOX;
@@ -165,7 +153,7 @@ int CTClientWnd::OnCS_LOGIN_ACK( CTachyonSession *pSession, CPacket *pPacket)
 			break;
 		case LR_PWCHANGE:
 			{
-				CString strMessage = "You have to change your password on the website in order to login.";
+				CString strMessage = "Your Account has been Suspended \n for Account Verification.\n Try Again in few Minutes";
 
 				DWORD dwFrameID = ID_FRAME_LOBBY_1BTN_MSGBOX;
 				DWORD dwYesID = GM_CLOSE_MSGBOX;

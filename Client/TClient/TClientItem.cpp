@@ -594,6 +594,9 @@ WORD wGradeSkin = 0;
 		{
 			switch( m_bGradeEffect)
 			{
+			case IE_NONE:
+				wGradeSkin = 0;
+				break;
 			case IE_SEA:
 				wGradeSkin = 4;
 				break;
@@ -647,6 +650,8 @@ WORD wGradeSkin = 0;
 				break;
 			case IE_E1:
 				wGradeSkin = 37;
+			case IE_E2:
+				wGradeSkin = 38;
 				break;
 			case IE_E3:
 				wGradeSkin = 39;
@@ -677,6 +682,9 @@ WORD wGradeSkin = 0;
 				break;
 			case IE_E12:
 				wGradeSkin = 48;
+				break;
+			case IE_E13:
+				wGradeSkin = 49;
 				break;
 			case IE_E14:
 				wGradeSkin = 50;

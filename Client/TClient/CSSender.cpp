@@ -3144,7 +3144,7 @@ void CTClientSession::SendCS_GUILDSKILLACTION_REQ(BYTE bAction, WORD wParam[])
 	for (BYTE i = 0; i < ARRAY_LEN(wParam); ++i)
 		pMSG << wParam[i];
 
-	/*
+	
 	switch (bAction)
 	{
 	case GS_BUY:
@@ -3155,7 +3155,7 @@ void CTClientSession::SendCS_GUILDSKILLACTION_REQ(BYTE bAction, WORD wParam[])
 	}
 	break;
 	}
-	*/
+	
 
 	Say(&pMSG);
 }

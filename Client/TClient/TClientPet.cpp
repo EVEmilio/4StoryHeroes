@@ -174,6 +174,8 @@ LPTITEMGRADEVISUAL CTClientPet::GetPETVISUAL(BYTE m_bEffect)
 	case IE_E1:
 		wGradeSkin = 37;
 		break;
+	case IE_E2:
+		wGradeSkin = 38;
 	case IE_E3:
 		wGradeSkin = 39;
 		break;
@@ -203,6 +205,9 @@ LPTITEMGRADEVISUAL CTClientPet::GetPETVISUAL(BYTE m_bEffect)
 		break;
 	case IE_E12:
 		wGradeSkin = 48;
+		break;
+	case IE_E13:
+		wGradeSkin = 49;
 		break;
 	case IE_E14:
 		wGradeSkin = 50;

@@ -1003,6 +1003,7 @@ void CTPlayer::OnTimer(DWORD dwTick)
 		m_dwSaveTick = dwTick;
 		if(m_bMain && !m_bIsTournamentPlayer)
 			_AtlModule.SendDM_SAVECHAR_REQ(this, 0);
+		
 	}
 
 	if(dwTick - m_dwCompanionTick > 60000)

@@ -28018,26 +28018,26 @@ void CTClientGame::DoEventFirstConnect()
 		case TCONTRY_D:
 			{
 				m_pMainChar->m_nDIR = INT(TSTART_D_CHAR_DIR) - m_pMainChar->m_wDIR;
-				m_vTSCENE_PLAYER.StartScene( m_pDevice, m_pRES, TSCENE_SCRIPT_DEFUGEL_ENTER);
+				//m_vTSCENE_PLAYER.StartScene( m_pDevice, m_pRES, TSCENE_SCRIPT_DEFUGEL_ENTER);
 			}
 			break;
 		case TCONTRY_C:
 			{
 				m_pMainChar->m_nDIR = INT(TSTART_C_CHAR_DIR) - m_pMainChar->m_wDIR;
-				m_vTSCENE_PLAYER.StartScene( m_pDevice, m_pRES, TSCENE_SCRIPT_CRAXION_ENTER);
+				//m_vTSCENE_PLAYER.StartScene( m_pDevice, m_pRES, TSCENE_SCRIPT_CRAXION_ENTER);
 			}
 			break;
 		case TCONTRY_B:
 			{
 				m_pMainChar->m_nDIR = INT(TSTART_B_CHAR_DIR) - m_pMainChar->m_wDIR;
-				m_vTSCENE_PLAYER.StartScene( m_pDevice, m_pRES, TSCENE_SCRIPT_BROIR_ENTER);
+				//m_vTSCENE_PLAYER.StartScene( m_pDevice, m_pRES, TSCENE_SCRIPT_BROIR_ENTER);
 			}
 			break;
 		case TCONTRY_PEACE:
 			{
 				m_pMainChar->m_nDIR = INT(TSTART_P_CHAR_DIR) - m_pMainChar->m_wDIR;
-				if( m_vMAP.m_wMapID != TUTORIAL_MAPID )
-					m_vTSCENE_PLAYER.StartScene( m_pDevice, m_pRES, TSCENE_SCRIPT_PEACE_ENTER);
+				//if( m_vMAP.m_wMapID != TUTORIAL_MAPID )
+					//m_vTSCENE_PLAYER.StartScene( m_pDevice, m_pRES, TSCENE_SCRIPT_PEACE_ENTER);
 			}
 			break;
 		}
@@ -28960,58 +28960,64 @@ void CTClientGame::AddEffectString(BYTE bEffect, CString &strText) //Let's be ho
 	switch (bEffect)
 	{
 	case IE_SEA:
-		strText += " " + CTChart::LoadString(TSTR_SEA);
+		strText += " (Sea)";
 		break;
 	case IE_FIRE:
-		strText += " " + CTChart::LoadString(TSTR_FIRE);
+		strText += " (Fire)";
 		break;
 	case IE_LIGHTING:
-		strText += " " + CTChart::LoadString(TSTR_LIGHTNING);
+		strText += " (Lighting)";
 		break;
 	case IE_ICE:
-		strText += " " + CTChart::LoadString(TSTR_ICE);
+		strText += " (Ice)";
 		break;
 	case IE_BLACK:
-		strText += " " + CTChart::LoadString(TSTR_BLACK);
+		strText += " (Poison)";
 		break;
 	case IE_PINK:
-		strText += " " + CTChart::LoadString(TSTR_PINK);
+		strText += " (Amethyst)";
 		break;
 	case IE_STORM:
-		strText += " " + CTChart::LoadString(TSTR_STORMBLUE);
+		strText += " (Storm Blue)";
 		break;
 	case IE_NATURE:
-		strText += " " + CTChart::LoadString(TSTR_POISENGREEN);
+		strText += " (Nature)";
 		break;
 	case IE_MAGMA:
-		strText += " " + CTChart::LoadString(TSTR_MAGMA);
+		strText += " (Magma)";
 		break;
 	case IE_NEON_GREEN:
-		strText += TSTR_NEON_GREEN;
+		strText += " (Magic Green)";
 		break;
 	case IE_MAGIC_ICE:
-		strText += TSTR_MAGIC_ICE;
+		strText += " (Magic Ice)";
 		break;
 	case IE_MAGIC_BLUE:
-		strText += TSTR_MAGIC_BLUE;
+		strText += " (Magic Blue)";
 		break;
 	case IE_SHINY_PINK:
-		strText += TSTR_SHINY_PINK;
+		strText += " (Pink Spinel)";
 		break;
 	case IE_MAGIC_PINK:
-		strText += TSTR_MAGIC_PINK;
+		strText += " (MagicPink)";
 		break;
 	case  IE_GOLD:
-		strText += TSTR_GOLD;
+		strText += " (Gold)";
 		break;
 	case IE_ABYSS:
-		strText += TSTR_ABYSS;
+		strText += " (Abyss)";
 		break;
 	case IE_QT_PINK:
 		strText += " (Curved Pink)";
 		break;
 	case IE_E1:
 		strText += " (Rainbow)";
+		break;
+	case IE_E2:
+		strText += " (Light)";
+		break;
+	case IE_E3:
+		strText += " (Bronze)";
 		break;
 	case IE_E4:
 		strText += " (Ruby)";
@@ -29028,6 +29034,9 @@ void CTClientGame::AddEffectString(BYTE bEffect, CString &strText) //Let's be ho
 	case IE_E8:
 		strText += " (Lime)";
 		break;
+	case IE_E9:
+		strText += " (Blase)";
+		break;
 	case IE_E10:
 		strText += " (Sunrise)";
 		break;
@@ -29036,6 +29045,9 @@ void CTClientGame::AddEffectString(BYTE bEffect, CString &strText) //Let's be ho
 		break;
 	case IE_E12:
 		strText += " (Prisma)";
+		break;
+	case IE_E13:
+		strText += " (Space)";
 		break;
 	case IE_E14:
 		strText += " (Matrix)";
@@ -29054,6 +29066,12 @@ void CTClientGame::AddEffectString(BYTE bEffect, CString &strText) //Let's be ho
 		break;
 	case IE_E19:
 		strText += " (Contrast)";
+		break;
+	case IE_E20: // STORM RED
+		strText += " (Magic Purple)";
+		break;
+	case IE_E21: // STORM RED
+		strText += " (Anthracite)";
 		break;
 	case IE_E22: // STORM RED
 		strText += " (Storm Red)";
