@@ -7649,14 +7649,14 @@ void CTClientObjBase::ApplyCloakTexture(CTClientItem* pCloak)
 	LPTITEMVISUAL pTVISUAL = pCloak->GetVisual();
 	WORD wTextureID = pCloak->GetMoggItemID() ? CTChart::FindTITEMTEMP(pCloak->GetMoggItemID())->m_wUseValue : pCloak->GetTITEM()->m_wUseValue;
 
-	MAPCUSTOMTEX::iterator jirker = pGame->m_mapCUSTOMTEX.find(wTextureID);
+	MAPCUSTOMTEX::iterator it = pGame->m_mapCUSTOMTEX.find(wTextureID);
 
 	if (pTVISUAL &&
 		pTVISUAL->m_dwCLKID &&
-		jirker != pGame->m_mapCUSTOMTEX.end() &&
+		it != pGame->m_mapCUSTOMTEX.end() &&
 		pCloak->GetTITEM()->m_bKind == IK_BACK)
 	{
-		LPTEXTURESET pSkinTEX = (*jirker).second;
+		LPTEXTURESET pSkinTEX = (*it).second;
 		if (!pSkinTEX || !pSkinTEX->GetTexture() || !pSkinTEX->GetTexturePtr(0))
 			return;
 

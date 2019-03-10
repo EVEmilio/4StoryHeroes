@@ -28304,10 +28304,10 @@ CString CTClientGame::GetMACAddress()
 
 LPTEXTURESET CTClientGame::GetCustomTexture(DWORD dwID)
 {
-	MAPCUSTOMTEX::iterator jirker = m_mapCUSTOMTEX.find(dwID);
+	MAPCUSTOMTEX::iterator it = m_mapCUSTOMTEX.find(dwID);
 
-	if( jirker != m_mapCUSTOMTEX.end() )
-		return (*jirker).second;
+	if( it != m_mapCUSTOMTEX.end() )
+		return (*it).second;
 	else
 		return ImagesToTextures(dwID, FALSE);
 	
