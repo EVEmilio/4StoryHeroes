@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+*.suo
 
 # Compiled Object files
 *.slo
@@ -30,3 +31,14 @@
 *.exe
 *.out
 *.app
+
+# Others
+*.idb
+*.log
+*.pdb
+*.tlog
+*.tlastbuildstate
+*.ilk
+*.VC.*
+*.map
+TClient*.res
