@@ -133,18 +133,6 @@ void CTBoxOpenDlg::Open()
 	m_bShowBox = FALSE;
 }
 
-void CTBoxOpenDlg::SwitchJirkus()
-{
-	RemoveKid(m_pProgress);
-	AddKid(m_pProgress);
-
-	RemoveKid(m_pItemName);
-	AddKid(m_pItemName);
-
-	RemoveKid(m_pReceived);
-	AddKid(m_pReceived);
-
-}
 void CTBoxOpenDlg::SetReward(WORD m_wItemID, BYTE bCount, CString strCustom)
 {
 	if(strCustom == NAME_NULL)

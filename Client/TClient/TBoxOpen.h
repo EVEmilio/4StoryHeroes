@@ -34,7 +34,6 @@ public :
 	HRESULT Render(DWORD dwTickCount);
 	void Release();
 	void SetSession(WORD m_wBoxID, BYTE m_bInvenID, BYTE m_bSlotID);
-	void SwitchJirkus();
 	void SetInvenID(BYTE bInvenID) {m_bInvenID = bInvenID;}
 	void SetItemID(BYTE bItemID) {m_bSlotID = bItemID;}
 
