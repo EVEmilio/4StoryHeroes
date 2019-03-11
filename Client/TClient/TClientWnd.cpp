@@ -1488,15 +1488,15 @@ void CTClientWnd::InitResource( CString strGroupID,
 		CString(_T("Camouflage.png")),//11
 		CString(_T("BlueCamouflage.png")),//12
 		CString(_T("Mon01_00.png")), //13
-		CString(_T("Mon01_01.png")), //14
+		CString(_T("001.png")), //14 Black Panda
 		CString(_T("Mon02_00.png")), //15
-		CString(_T("Mon03_00.png")), //16
+		CString(_T("002.png")), //16 Balckpanda
 		CString(_T("Mon03_01.png")), //17
 		CString(_T("Mon04_00.png")), //18
-		CString(_T("Mon05_00.png")), //19 RED
-		CString(_T("Mon06_00.png")), //20 GReen
-		CString(_T("Mon07_00.png")), //21 BLUE
-		CString(_T("Mon08_00.png")),//, //22 PINK we
+		CString(_T("003.png")), //19 Shadow Dragon
+		CString(_T("004.png")), //20 Ghost Dragon
+		CString(_T("005.png")), //21 Magma Dragon
+		CString(_T("006.png")),//, //22 Blue Dragon
 		CString(_T("Item01.png")), // 23 Supreme x Luis V
 		CString(_T("Tex100.png")), //  24Custom Cloak 1 Halloween,
 		CString(_T("Tex101.png")) //  25Custom Cloak 2 Halloween,

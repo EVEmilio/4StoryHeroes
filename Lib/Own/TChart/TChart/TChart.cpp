@@ -3864,65 +3864,6 @@ void CTChart::InitTPET( CString strPath )
 		CTChart::m_mapTPET.insert( make_pair(pPET->m_wID, pPET) );
 	}
 
-	MAPTPET::iterator itPet = CTChart::m_mapTPET.find(14);
-	if (itPet != CTChart::m_mapTPET.end())
-	{
-		LPTPET pPET = new TPET(*(*itPet).second);
-		pPET->m_wID = 50;
-		pPET->m_wMonID = 31250;
-		pPET->m_wSaddleMonID = 31251;
-		pPET->m_wIcon = 60004;
-
-		CTChart::m_mapTPET.insert( make_pair(pPET->m_wID, pPET) );
-	}
-
-	itPet = CTChart::m_mapTPET.find(28);
-	if (itPet != CTChart::m_mapTPET.end())
-	{
-		LPTPET pPET = new TPET(*(*itPet).second);
-		pPET->m_wID = 51;
-		pPET->m_wMonID = 31254;
-		pPET->m_wSaddleMonID = 31255;
-		pPET->m_wIcon = 60000;
-
-		CTChart::m_mapTPET.insert( make_pair(pPET->m_wID, pPET) );
-	}
-
-	itPet = CTChart::m_mapTPET.find(28);
-	if (itPet != CTChart::m_mapTPET.end())
-	{
-		LPTPET pPET = new TPET(*(*itPet).second);
-		pPET->m_wID = 52;
-		pPET->m_wMonID = 31256;
-		pPET->m_wSaddleMonID = 31257;
-		pPET->m_wIcon = 60001;
-
-		CTChart::m_mapTPET.insert(make_pair(pPET->m_wID, pPET));
-	}
-
-	itPet = CTChart::m_mapTPET.find(28);
-	if (itPet != CTChart::m_mapTPET.end())
-	{
-		LPTPET pPET = new TPET(*(*itPet).second);
-		pPET->m_wID = 53;
-		pPET->m_wMonID = 31258;
-		pPET->m_wSaddleMonID = 31259;
-		pPET->m_wIcon = 60002;
-
-		CTChart::m_mapTPET.insert(make_pair(pPET->m_wID, pPET));
-	}
-
-	itPet = CTChart::m_mapTPET.find(28);
-	if (itPet != CTChart::m_mapTPET.end())
-	{
-		LPTPET pPET = new TPET(*(*itPet).second);
-		pPET->m_wID = 54;
-		pPET->m_wMonID = 31252;
-		pPET->m_wSaddleMonID = 31253;
-		pPET->m_wIcon = 60003;
-
-		CTChart::m_mapTPET.insert(make_pair(pPET->m_wID, pPET));
-	}
 }
 
 
@@ -4080,17 +4021,6 @@ void CTChart::InitTITEMGRADEVISUAL( CString strPath )
 			case 3:
 			{
 
-
-
-
-
-
-
-
-
-
-
-
 				Data.m_pSkinTex = (tagTEXTURESET*)999233308;
 				Data.m_bPSTYPE = (INT)3;
 			}
@@ -4121,6 +4051,13 @@ void CTChart::InitTITEMGRADEVISUAL( CString strPath )
 				Data.m_pSkinTex = (tagTEXTURESET*)30001;
 				Data.m_bPSTYPE = 6;
 			}
+
+			case 8:
+			{
+				Data.m_pSkinTex = (tagTEXTURESET*)30002;
+				Data.m_bPSTYPE = 6;
+			}
+			break;
 			case 9:
 			{
 				Data.m_pSkinTex = (tagTEXTURESET*)30003;
@@ -4177,7 +4114,13 @@ void CTChart::InitTITEMGRADEVISUAL( CString strPath )
 			case 18:
 			{
 				Data.m_pSkinTex = (tagTEXTURESET*)30012;
-				Data.m_bPSTYPE = 6;
+				Data.m_bPSTYPE = 19;
+			}
+			break;
+			case 19:
+			{
+				Data.m_pSkinTex = (tagTEXTURESET*)1089472;
+				Data.m_bPSTYPE = 7;
 			}
 			break;
 			case 20:
@@ -4218,8 +4161,8 @@ void CTChart::InitTITEMGRADEVISUAL( CString strPath )
 			break;
 			case 26:
 			{
-				Data.m_pSkinTex = (tagTEXTURESET*)30020;
-				Data.m_bPSTYPE = 6;
+				Data.m_pSkinTex = (tagTEXTURESET*)285967186;
+				Data.m_bPSTYPE = 3;
 			}
 			break;
 			case 27:

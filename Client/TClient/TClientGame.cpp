@@ -28306,7 +28306,7 @@ LPTEXTURESET CTClientGame::GetCustomTexture(DWORD dwID)
 {
 	MAPCUSTOMTEX::iterator it = m_mapCUSTOMTEX.find(dwID);
 
-	if( it != m_mapCUSTOMTEX.end() )
+	if (it != m_mapCUSTOMTEX.end())
 		return (*it).second;
 	else
 		return ImagesToTextures(dwID, FALSE);
@@ -29047,7 +29047,7 @@ void CTClientGame::AddEffectString(BYTE bEffect, CString &strText) //Let's be ho
 		strText += " (Prisma)";
 		break;
 	case IE_E13:
-		strText += " (Space)";
+		strText += " (Special Purple)";
 		break;
 	case IE_E14:
 		strText += " (Matrix)";
@@ -29068,10 +29068,10 @@ void CTClientGame::AddEffectString(BYTE bEffect, CString &strText) //Let's be ho
 		strText += " (Contrast)";
 		break;
 	case IE_E20: // STORM RED
-		strText += " (Magic Purple)";
+		strText += " (Anthracite)";
 		break;
 	case IE_E21: // STORM RED
-		strText += " (Anthracite)";
+		strText += " (Sacred)";
 		break;
 	case IE_E22: // STORM RED
 		strText += " (Storm Red)";
