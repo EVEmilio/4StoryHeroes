@@ -2267,7 +2267,7 @@ void CTClientWnd::InitResource( CString strGroupID,
 		pDESC = m_pTParser->FindFrameTemplate( 1237 );
 		pFrmGrpBase->AddFrame( new CTGuildJoinNewDlg( pFrmGrpBase, pDESC, pMINIPOPUPDESC ), 27708 );
 
-		pDESC = m_pTParser->FindFrameTemplate( 1226 );
+		pDESC = m_pTParser->FindFrameTemplate( 1401 );
 		pFrmGrpBase->AddFrame( new CTGuildWarInfoNewDlg( pFrmGrpBase, pDESC ), 27709 );
 		
 		pDESC = m_pTParser->FindFrameTemplate(1276);

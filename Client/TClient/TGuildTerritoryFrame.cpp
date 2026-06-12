@@ -151,19 +151,6 @@ void CTGuildTerritoryFrame::SetCurMode(INT nMode)
 				{
 					const LocalTerritory& local = info.m_vLocals[j];
 
-
-
-					switch(local.m_bStatus)
-					{
-						case 0:
-							dwColor = D3DCOLOR_XRGB(205,38,38);
-							break;
-						case 1:
-							dwColor = D3DCOLOR_XRGB(0,204,0);
-							break;
-					}
-
-
 					int nLine = m_pList->AddString(local.m_strLocalName);
 					m_pList->SetUserColor( nLine, 0, color );
 

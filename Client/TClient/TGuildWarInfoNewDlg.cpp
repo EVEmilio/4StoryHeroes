@@ -73,36 +73,45 @@ void CTGuildWarInfoNewDlg::SetCurMode()
 		{
 			const LocalTerritory& local = info.m_vLocals[j];
 			int nLine = m_pList->AddString("");
+
+			DWORD dwColorLoc = COLOR_CASTLE_NONE;
+			
+
 			m_pList->SetItemString(nLine, 1, local.m_strLocalName);
 			m_pList->SetUserColor(nLine, 1, color);
 			m_pList->SetColumnAlign(1, ALIGN_CENTER);
 
 
+			m_pList->SetItemString(nLine, 0, local.m_strGuildName);
+			m_pList->SetUserColor(nLine, 0, color);
+			m_pList->SetColumnAlign(0, ALIGN_CENTER);
+
 			m_pList->SetUserColor(nLine, 2, color);
 			m_pList->SetImageIndex(nLine, 2, TRUE, local.m_bCountry);
-
 			
-			DWORD dwColorLoc = COLOR_CASTLE_NONE;
+			CString strStatusLocal;
 			switch (local.m_bStatus)
 			{
 			case BS_SKYGARDEN_START:
 			case BS_NORMAL:
-				
-				dwColorLoc = TBattleColorEnd;
+				strStatusLocal = CTChart::LoadString(TSTR_MISSION_NORMAL);
+				m_pList->SetItemString(nLine, 3, strStatusLocal);
+				m_pList->SetUserColor(nLine, 3, color);
 				break;
 			case BS_BATTLE:
-				
-				dwColorLoc = TBattleColorWar;
+				strStatusLocal = CTChart::LoadString(TSTR_MISSION_WAR);
+				m_pList->SetItemString(nLine, 3, strStatusLocal);
+				m_pList->SetUserColor(nLine, 3, TBattleColorWar);
 				break;
 			case BS_PEACE:
-				
-				dwColorLoc = TBattleColorEnd;
+				strStatusLocal = CTChart::LoadString(TSTR_MISSION_WAR_CLOSE);
+				m_pList->SetItemString(nLine, 3, strStatusLocal);
+				m_pList->SetUserColor(nLine, 3, TBattleColorEnd);
 				break;
 			}
-			
 
-			m_pList->SetItemString(nLine, 3, local.m_strGuildName);
-			m_pList->SetUserColor(nLine, 3, dwColorLoc);
+			m_pList->SetItemString(nLine, 3, strStatusLocal);
+			//m_pList->SetUserColor(nLine, 3, color);
 			m_pList->SetColumnAlign(3, ALIGN_CENTER);
 
 			DWORD dwInfoIndex = MAKELONG(j, i);
@@ -120,20 +129,6 @@ void CTGuildWarInfoNewDlg::SetCurMode()
 		m_pList2->SetUserColor(nLine2, 2, color);
 		m_pList2->SetColumnAlign(2, ALIGN_CENTER);
 
-		CString castletext;
-		if (info.m_strAtkGuild != "" && info.m_strDefGuild == "")
-			castletext.Format("%s", info.m_strAtkGuild);
-		else if (info.m_strAtkGuild == "" && info.m_strDefGuild != "")
-			castletext.Format("%s", info.m_strDefGuild);
-		else if (info.m_strAtkGuild == "" && info.m_strDefGuild == "")
-			castletext.Empty();
-		else
-			castletext.Format("%s  /  %s", info.m_strAtkGuild, info.m_strDefGuild);
-
-		m_pList2->SetItemString(nLine2, 3, castletext);
-		m_pList2->SetUserColor(nLine2, 3, color);
-		m_pList2->SetColumnAlign(3, ALIGN_CENTER);
-
 		CString strStatusCastle;
 		DWORD dwColorCastle = COLOR_CASTLE_NONE;
 		switch (info.m_bStatus)
@@ -141,21 +136,25 @@ void CTGuildWarInfoNewDlg::SetCurMode()
 		case BS_SKYGARDEN_START:
 		case BS_NORMAL:
 			strStatusCastle = CTChart::LoadString(TSTR_MISSION_NORMAL);
+			m_pList->SetItemString(nLine2, 3, strStatusCastle);
+			m_pList2->SetUserColor(nLine2, 3, color);
 			break;
 		case BS_BATTLE:
 			strStatusCastle = CTChart::LoadString(TSTR_MISSION_WAR);
+			m_pList->SetItemString(nLine2, 3, strStatusCastle);
 			dwColorCastle = TBattleColorWar;
 			break;
 		case BS_PEACE:
 			strStatusCastle = CTChart::LoadString(TSTR_MISSION_WAR_CLOSE);
+			m_pList->SetItemString(nLine2, 3, strStatusCastle);
 			dwColorCastle = TBattleColorEnd;
 			break;
 		}
 
 
-		m_pList2->SetItemString(nLine2, 4, strStatusCastle);
-		m_pList2->SetUserColor(nLine2, 4, dwColorCastle);
-		m_pList2->SetColumnAlign(4, ALIGN_CENTER);
+		m_pList2->SetItemString(nLine2, 3, strStatusCastle);
+		//m_pList2->SetUserColor(nLine2, 3, dwColorCastle);
+		m_pList2->SetColumnAlign(3, ALIGN_CENTER);
 
 		DWORD dwInfoIndex2 = MAKELONG(0, i);
 		m_pList2->SetItemDataAllColumn(nLine2, dwInfoIndex2);
